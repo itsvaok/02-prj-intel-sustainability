@@ -1,1 +1,191 @@
-/* Add your CSS here */
+body {
+  background-color: #d3d3d3;
+  margin: 0;
+}
+
+/* 🟢 Header / heading box 🟢 */
+
+header {
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(to right, #1c41c5, #00a3e0);
+  padding: 35px 20px;
+  font-size: 20px;
+}
+
+.footer {
+
+  width: 100%;
+  background-color: #a8aaab;
+  color: rgb(0, 0, 0);
+  opacity: 0.8;
+  font-size: 16px;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.heading-box img,
+img[alt="Intel Logo"] {
+  width: 300px;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;  
+}
+.heading-box p {
+  color: rgb(203, 219, 255);
+}
+
+.heading-box h1,
+.heading-box p {
+  text-align: center;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.heading-box p {
+  max-width: 500px; /* Smaller max-width means the text wraps sooner into more lines.*/
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* 🛑 Header / heading box 🛑 */
+
+/* 🟢 style for card timeline start 🟢 */
+
+.timeline {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: auto; /* x = horizontal direction. auto = adds a scrollbar only if content overflows */
+  padding: 20px;
+  justify-content: flex-start; /* changed the "flex-start" so my cards werent cut off page */
+  max-width: 1000px;
+  margin: 0 auto;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.timeline .card {
+  flex: 0 0 calc(25% - 15px);
+  scroll-snap-align: start;
+}
+
+
+/* 🟢 Design for cards 🟢 */
+.card {
+  background-color: white;
+  border: 2px solid #0071c5;
+  border-radius: 8px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover,
+.card:focus {
+  transform: scale(1.05); 
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(35, 50, 62, 0.85);
+  color: white;
+  opacity: 0;
+  padding: 12px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.card:hover .card-text,
+.card:focus .card-text {
+  opacity: 1;   
+}
+
+.card h2,
+.card h3,
+.card p {
+  margin-top: 0;
+}
+
+/* 🛑 style for card timeline end 🛑 */
+
+/* 🟢 style for images in cards 🟢 */
+img {
+  width: 237px;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
+}
+
+/* 🟢 mobile styles 🟢 */
+@media (max-width: 600px) {
+  header {
+    min-height: 250px;
+    padding: 30px 15px;
+  }
+
+  .heading-box {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .heading-box img,
+  img[alt="Intel Logo"] {
+    width: 200px;
+  }
+
+  .heading-box h1 {
+    font-size: 28px;
+  }
+
+  .heading-box p {
+    font-size: 16px;
+  }
+
+  .timeline {
+    max-width: 100%;
+    padding: 15px;
+    flex-direction: column;
+    overflow-x: visible;
+    gap:20px;
+  }
+
+  .timeline .card {
+    flex: none;
+    width: 100%;
+    box-sizing: border-box;
+    scroll-snap-align: center;
+  }
+
+  .card img {
+    width: 100%;
+    height: 180px;
+  }
+
+  .card-text {
+    font-size: 14px;
+  }
+
+  .timeline-note {
+    text-align: center;
+    padding: 0 15px;
+  }
+}
