@@ -29,6 +29,10 @@ header {
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.15);
 }
 
+.footer a:hover {
+  text-decoration: underline !important;  
+}
+
 .heading-box img,
 img[alt="Intel Logo"] {
   width: 300px;
@@ -52,6 +56,12 @@ img[alt="Intel Logo"] {
   line-height: 1.5;
 }
 
+.newsletter-section {
+  background-color: rgb(240, 240, 240);
+  padding: 40px 20px;
+  margin:40px 0;
+}
+
 /* 🛑 Header / heading box 🛑 */
 
 /* 🟢 style for card timeline start 🟢 */
@@ -70,14 +80,15 @@ img[alt="Intel Logo"] {
   scroll-behavior: smooth;
 }
 
-.timeline .card {
-  flex: 0 0 calc(25% - 15px);
+.timeline .timeline-card {
+  flex: 0 0 250px;
+  width: 250px;
   scroll-snap-align: start;
 }
 
 
 /* 🟢 Design for cards 🟢 */
-.card {
+.timeline .timeline-card {
   background-color: white;
   border: 2px solid #0071c5;
   border-radius: 8px;
@@ -87,12 +98,12 @@ img[alt="Intel Logo"] {
   transition: transform 0.3s ease-in-out;
 }
 
-.card:hover,
-.card:focus {
+.timeline-card:hover,
+.timeline-card:focus {
   transform: scale(1.05); 
 }
 
-.card {
+.timeline-card {
   position: relative;
   overflow: hidden;
 }
@@ -113,22 +124,33 @@ img[alt="Intel Logo"] {
   transition: opacity 0.3s ease-in-out;
 }
 
-.card:hover .card-text,
-.card:focus .card-text {
+.timeline-card:hover .card-text,
+.timeline-card:focus .card-text {
   opacity: 1;   
 }
 
-.card h2,
-.card h3,
-.card p {
+.timeline-card h2,
+.timeline-card h3,
+.timeline-card p {
   margin-top: 0;
+}
+
+.timeline-card h2 {
+  min-height: 36px;
+  margin-bottom: 8px;
+}
+
+.timeline-card h3 {
+  min-height: 55px;
+  margin-bottom: 12px;
+  font-size: 20px;
 }
 
 /* 🛑 style for card timeline end 🛑 */
 
 /* 🟢 style for images in cards 🟢 */
-img {
-  width: 237px;
+.timeline .timeline-card img {
+  width: 100%;
   height: 200px;
   object-fit: cover;
   display: block;
@@ -168,14 +190,14 @@ img {
     gap:20px;
   }
 
-  .timeline .card {
+  .timeline .timeline-card {
     flex: none;
     width: 100%;
     box-sizing: border-box;
     scroll-snap-align: center;
   }
 
-  .card img {
+  .timeline-card img {
     width: 100%;
     height: 180px;
   }
@@ -187,5 +209,60 @@ img {
   .timeline-note {
     text-align: center;
     padding: 0 15px;
+  }
+}
+
+/* 🟢 3-column content (responsive, CSS-only) 🟢 */
+.three-columns {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.three-columns > div {
+  border-radius: 8px;
+  padding: 20px;
+  flex: 1 1 calc(33.333% - 20px);
+  min-width: 220px;
+  box-sizing: border-box;
+}
+.three-columns h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4rem;
+}
+.three-columns h2:dir(rtl) {
+  flex-direction: row-reverse;
+}
+.three-columns .heading-icon {
+  width: 32px;
+  height: 32px;
+}
+.three-columns a {
+  display: inline-block;
+  margin-top: 12px;
+  background: #0071c5;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.15);
+}
+.three-columns a:hover {
+  background: #005fa1;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 900px) {
+  .three-columns {
+    flex-direction: column;
+  }
+  .three-columns > div {
+    width: 100%;
   }
 }
